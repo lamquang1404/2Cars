@@ -135,7 +135,7 @@ public class GameView extends View {
 
         // coord similar of 2 cars
         top_Car = (canvas.getHeight() - 2 * canvas.getHeight() / 9);
-        bottom_Car = top_Car + 100;
+        bottom_Car = top_Car + 1.5f*largeur_objet;
 
         // coord of left car
         left_LeftCar = 2 * spaceToCar;

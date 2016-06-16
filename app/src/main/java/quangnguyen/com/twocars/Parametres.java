@@ -5,5 +5,5 @@ package quangnguyen.com.twocars;
  */
 public class Parametres {
    static float dx_Mouvement = 15;
-   static float dy_Mouvement = 15;
+   static float dy_Mouvement = 20;
 }
