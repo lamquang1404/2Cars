@@ -350,36 +350,40 @@ public class GameView extends View {
             }
         }
     }
-
+    boolean isFirstMove_rightCar = true;
+    boolean isFirstMove_leftCar = true;
     private void ChangeSide_Car(Canvas canvas) {
         // change side of car for each touch
         for (Finger f : Finger.fingers) {
             if (f.active) {
                 if (f.x > canvas.getWidth() / 2) {
                     // Event mouvement de RightCar
-                    if (left_RightCar > ((canvas.getWidth() / 4) * 3)) {
+                    if (isFirstMove_rightCar) {
                         isMoveLeft_RightCar = true;
                         isRotateLeft_RightCar = true;
                         isMoveRight_RightCar = false;
                         isRotateRight_RightCar = false;
-                    } else {
-                        isMoveLeft_RightCar = false;
-                        isRotateLeft_RightCar = false;
-                        isMoveRight_RightCar = true;
-                        isRotateRight_RightCar = true;
+                        isFirstMove_rightCar = false;
+                    }
+                    else {
+                        isMoveLeft_RightCar = !isMoveLeft_RightCar;
+                        isRotateLeft_RightCar = !isRotateLeft_RightCar;
+                        isMoveRight_RightCar = !isMoveRight_RightCar;
+                        isRotateRight_RightCar = !isRotateRight_RightCar;
                     }
                 } else {
                     // Event mouvement de LeftCar
-                    if (left_LeftCar > (canvas.getWidth() / 4)) {
-                        isMoveLeft_LeftCar = true;
-                        isRotateLeft_LeftCar = true;
-                        isMoveRight_LeftCar = false;
-                        isRotateRight_LeftCar = false;
-                    } else {
-                        isMoveLeft_LeftCar = false;
-                        isRotateLeft_LeftCar = false;
+                    if (isFirstMove_leftCar) {
                         isMoveRight_LeftCar = true;
                         isRotateRight_LeftCar = true;
+                        isMoveLeft_LeftCar = false;
+                        isRotateLeft_LeftCar = false;
+                        isFirstMove_leftCar = false;
+                    } else {
+                        isMoveLeft_LeftCar = !isMoveLeft_LeftCar;
+                        isRotateLeft_LeftCar = !isRotateLeft_LeftCar;
+                        isMoveRight_LeftCar = !isMoveRight_LeftCar ;
+                        isRotateRight_LeftCar = !isRotateRight_LeftCar ;
                     }
                 }
                 f.active = false;
